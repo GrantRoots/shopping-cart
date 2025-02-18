@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 
-function Card({ id }) {
+function Card({ id, onClick }) {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
   const [imageURL, setImageURL] = useState(null);
@@ -18,28 +18,38 @@ function Card({ id }) {
       .catch((error) => console.error(error));
   }, []);
 
-  function handleChange() {
-    //change state
+  function handleChange(e) {
+    setTotal(e.target.value);
   }
 
-  function handleClick() {
-    //add or subtract items
+  function handleClick(e) {
+    e.target.id === "1" ? setTotal(total + 1) : setTotal(total - 1);
   }
 
   return (
     <div className={styles.container}>
       <div>
-        <div>TITLE: {name}</div>
-        <div>PRICE: {price}</div>
+        <h4>{name}</h4>
+        <div>PRICE: ${price}</div>
       </div>
       <img src={imageURL} alt="Image" />
       <div className={styles.inputs}>
         <div>
-          <input onChange={null} type="number" min={0} value={total} />
-          <button onClick={handleClick}>+1</button>
-          <button onClick={handleClick}>-1</button>
+          <input
+            onChange={handleChange}
+            type="number"
+            defaultValue="0"
+            value={total}
+            min={0}
+          />
+          <button id="1" onClick={handleClick}>
+            +1
+          </button>
+          <button id="0" onClick={handleClick}>
+            -1
+          </button>
         </div>
-        <button>Add to cart</button>
+        <button onClick={() => onClick(total)}>Add to cart</button>
       </div>
     </div>
   );
