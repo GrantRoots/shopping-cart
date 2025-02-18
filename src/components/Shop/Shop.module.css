@@ -1,0 +1,30 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+* {
+  outline: 1px black solid;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template: repeat(4, 25rem) / repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.home {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
