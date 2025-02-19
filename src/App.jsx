@@ -1,19 +1,13 @@
-import { Home } from "./components/Home/Home";
-import { Shop } from "./components/Shop/Shop";
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  const [route, setRoute] = useState("Home");
+  const [route, setRoute] = useState("Shop");
   const [cartTotal, setCartTotal] = useState(0);
 
   function changeRoute() {
     route === "Home" ? setRoute("Shop") : setRoute("Home");
   }
-
-  // function addToCart(amount) {
-  //   amount < 0 ? null : setTotal(total + amount);
-  // }
 
   return (
     <>

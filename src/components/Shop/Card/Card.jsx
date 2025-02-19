@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import { useOutletContext } from "react-router-dom";
 
-function Card({ id, onClick }) {
+function Card({ id }) {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
   const [imageURL, setImageURL] = useState(null);
