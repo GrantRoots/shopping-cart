@@ -10,3 +10,11 @@ h5,
 h6 {
   margin: 0;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 1px solid black;
+}

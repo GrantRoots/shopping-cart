@@ -1,46 +1,28 @@
-import { Card } from "../Card/Card";
-import { Link } from "react-router-dom";
+import { Card } from "./Card/Card";
 import styles from "./Shop.module.css";
-import { useState } from "react";
 
 function Shop() {
-  const [total, setTotal] = useState(0);
-
-  function addToCart(amount) {
-    amount < 0 ? null : setTotal(total + amount);
-  }
-
   return (
     <>
-      <nav>
-        <h3>Shop</h3>
-        <div>
-          <div>Number of items: {total}</div>
-          <button>Go to cart / checkout</button>
-        </div>
-      </nav>
-      <h1>Items...</h1>
+      <h1>Welcome!</h1>
       <div className={styles.cardContainer}>
-        <Card onClick={(amount) => addToCart(amount)} id={1} />
-        <Card onClick={(amount) => addToCart(amount)} id={2} />
-        <Card onClick={(amount) => addToCart(amount)} id={3} />
-        <Card onClick={(amount) => addToCart(amount)} id={4} />
-        <Card onClick={(amount) => addToCart(amount)} id={5} />
-        <Card onClick={(amount) => addToCart(amount)} id={6} />
-        <Card onClick={(amount) => addToCart(amount)} id={7} />
-        <Card onClick={(amount) => addToCart(amount)} id={8} />
-        <Card onClick={(amount) => addToCart(amount)} id={9} />
-        <Card onClick={(amount) => addToCart(amount)} id={10} />
-        <Card onClick={(amount) => addToCart(amount)} id={11} />
-        <Card onClick={(amount) => addToCart(amount)} id={12} />
-        <Card onClick={(amount) => addToCart(amount)} id={13} />
-        <Card onClick={(amount) => addToCart(amount)} id={14} />
-        <Card onClick={(amount) => addToCart(amount)} id={15} />
-        <Card onClick={(amount) => addToCart(amount)} id={16} />
+        <Card id={1} />
+        <Card id={2} />
+        <Card id={3} />
+        <Card id={4} />
+        <Card id={5} />
+        <Card id={6} />
+        <Card id={7} />
+        <Card id={8} />
+        <Card id={9} />
+        <Card id={10} />
+        <Card id={11} />
+        <Card id={12} />
+        <Card id={13} />
+        <Card id={14} />
+        <Card id={15} />
+        <Card id={16} />
       </div>
-      <Link className={styles.home} to={"/"}>
-        Back to home
-      </Link>
     </>
   );
 }

@@ -1,19 +1,7 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  align-items: center;
-}
-
 h1 {
   display: flex;
   justify-content: center;
-  margin: 0;
 }
-
-/* * {
-  outline: 1px black solid;
-} */
 
 .cardContainer {
   display: grid;

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
+import { useOutletContext } from "react-router-dom";
 
 function Card({ id, onClick }) {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [total, setTotal] = useState(0);
+  const { cartTotal, setCartTotal } = useOutletContext();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`, { mode: "cors" })
@@ -24,6 +26,10 @@ function Card({ id, onClick }) {
 
   function handleClick(e) {
     e.target.id === "1" ? setTotal(total + 1) : setTotal(total - 1);
+  }
+
+  function handleAddToCart() {
+    total < 0 ? null : setCartTotal(cartTotal + total);
   }
 
   return (
@@ -49,7 +55,7 @@ function Card({ id, onClick }) {
             -1
           </button>
         </div>
-        <button onClick={() => onClick(total)}>Add to cart</button>
+        <button onClick={handleAddToCart}>Add to cart</button>
       </div>
     </div>
   );
