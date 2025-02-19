@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import { useOutletContext } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Card({ id }) {
   const [name, setName] = useState(null);
@@ -21,7 +22,7 @@ function Card({ id }) {
   }, []);
 
   function handleChange(e) {
-    setTotal(e.target.value);
+    setTotal(Number(e.target.value));
   }
 
   function handleClick(e) {
@@ -60,5 +61,9 @@ function Card({ id }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export { Card };
