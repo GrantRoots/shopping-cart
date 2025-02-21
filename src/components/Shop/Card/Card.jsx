@@ -7,7 +7,7 @@ function Card({ id }) {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(null);
   const { cartTotal, setCartTotal } = useOutletContext();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Card({ id }) {
   }
 
   function handleClick(e) {
-    e.target.id === "1" ? setTotal(total + 1) : setTotal(total - 1);
+    e.target.id === "+1" ? setTotal(total + 1) : setTotal(total - 1);
   }
 
   function handleAddToCart() {
@@ -34,7 +34,7 @@ function Card({ id }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid={`card-${id}`}>
       <div>
         <h4>{name}</h4>
         <div>PRICE: ${price}</div>
@@ -45,14 +45,13 @@ function Card({ id }) {
           <input
             onChange={handleChange}
             type="number"
-            defaultValue="0"
+            placeholder="0"
             value={total}
-            min={0}
           />
-          <button id="1" onClick={handleClick}>
+          <button id="+1" onClick={handleClick}>
             +1
           </button>
-          <button id="0" onClick={handleClick}>
+          <button id="-1" onClick={handleClick}>
             -1
           </button>
         </div>
