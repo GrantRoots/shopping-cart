@@ -3,12 +3,12 @@ import styles from "./Card.module.css";
 import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Card({ id }) {
+function useFetchProduct(id) {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const [total, setTotal] = useState(null);
-  const { cartTotal, setCartTotal } = useOutletContext();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`, { mode: "cors" })
@@ -18,8 +18,21 @@ function Card({ id }) {
         setPrice(response.price);
         setImageURL(response.image);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, []);
+
+  return { name, price, imageURL, loading, error };
+}
+
+function Card({ id }) {
+  const [total, setTotal] = useState(null);
+  const { cartTotal, setCartTotal } = useOutletContext();
+
+  const { name, price, imageURL, loading, error } = useFetchProduct(id);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
 
   function handleChange(e) {
     setTotal(Number(e.target.value));
@@ -65,4 +78,4 @@ Card.propTypes = {
   id: PropTypes.number.isRequired,
 };
 
-export { Card };
+export { Card, useFetchProduct };
