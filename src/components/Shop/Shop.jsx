@@ -3,7 +3,7 @@ import styles from "./Shop.module.css";
 
 function Shop() {
   return (
-    <>
+    <div data-testid={"shop"}>
       <h1>Welcome!</h1>
       <div className={styles.cardContainer}>
         <Card id={1} />
@@ -23,7 +23,7 @@ function Shop() {
         <Card id={15} />
         <Card id={16} />
       </div>
-    </>
+    </div>
   );
 }
 
