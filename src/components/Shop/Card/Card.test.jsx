@@ -1,16 +1,9 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-  within,
-} from "@testing-library/react";
+import { describe, it, expect, beforeEach } from "vitest";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import App from "../../../App";
 import { Shop } from "../Shop";
-import { useFetchProduct } from "./Card";
 
 describe("Card", () => {
   beforeEach(() => {
@@ -87,9 +80,4 @@ describe("Card", () => {
       expect(screen.getByText("Total in cart: 2")).toBeInTheDocument();
     });
   });
-
-  // it("State updates");
-  // it("Props updates");
-  // it("Event handling");
-  // it("Interacts with other components");
 });
