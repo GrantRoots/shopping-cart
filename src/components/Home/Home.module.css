@@ -1,3 +1,21 @@
-.div {
-  background-color: red;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  outline: 1px solid black;
+  height: 44.7rem;
+}
+
+.h1 {
+  text-align: center;
+}
+
+.img {
+  height: 35rem;
+  object-fit: cover;
+}
+
+.p {
+  font-size: 1.4rem;
+  text-align: center;
 }

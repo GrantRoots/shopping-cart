@@ -4,7 +4,7 @@ import styles from "./Shop.module.css";
 function Shop() {
   return (
     <div data-testid={"shop"}>
-      <h1>Welcome!</h1>
+      <h1 className={styles.h1}>Welcome!</h1>
       <div className={styles.cardContainer}>
         <Card id={1} />
         <Card id={2} />

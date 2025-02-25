@@ -52,7 +52,7 @@ function Card({ id }) {
         <h4>{name}</h4>
         <div>PRICE: ${price}</div>
       </div>
-      <img src={imageURL} alt="Image" />
+      <img src={imageURL} alt="Image" className={styles.img} />
       <div className={styles.inputs}>
         <div>
           <input
